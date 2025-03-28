@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
+import "./App.css";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Dashboard />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
-  return (
-      <h1>Vite + React</h1>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
